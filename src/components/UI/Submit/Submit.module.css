@@ -1,0 +1,19 @@
+.Submit {
+  margin-left: 5px;
+  width: 180px;
+  background: none;
+  border: 3px solid black;
+  color: black; 
+}
+
+.Submit:hover {
+  color: white;
+  border-color: var(--light-blue);
+  background: var(--light-blue);
+}
+
+.Submit:active {
+  color: black;
+  border-color: black;
+  background: var(--light-blue);
+}
