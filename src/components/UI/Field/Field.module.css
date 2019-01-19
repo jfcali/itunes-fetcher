@@ -1,0 +1,14 @@
+.Field {
+  flex-grow: 2;
+  margin-right: 5px;
+  font-size: 26px;
+  background: white;
+  border-bottom: 4px solid black;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.Field:focus {
+  border-bottom-color: var(--light-blue); 
+  color: var(--light-blue); 
+}
