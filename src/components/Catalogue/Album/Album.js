@@ -1,12 +1,10 @@
 import React from 'react';
 import styles from './Album.module.css';
 
-const ellipsis = ({ text, tail = '...', length = 100 }) => {
-  console.log(text);
-  if (!text) return null;
+const ellipsis = ({ text = '', tail = '...', length = 100 }) => {
   return text.length <= length
     ? text
-    : [...text].splice(length).join('') + tail;
+    : [...text].splice(0, length).join('') + tail;
 };
 
 const album = props => {
@@ -19,7 +17,7 @@ const album = props => {
         longdesc={props.album}
       />
       <div>
-        <h1 className={styles.AlbumName}>{props.album}</h1>
+        <h1 className={styles.AlbumName}>{ellipsis({ text: props.album })}</h1>
         <p className={styles.Artist}>{ellipsis({ text: props.artist })}</p>
       </div>
     </div>
