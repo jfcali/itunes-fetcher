@@ -3,6 +3,7 @@
   margin: 20px;
   padding: 20px;
   border: 4px solid black;
+  margin-bottom: 100px;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

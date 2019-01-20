@@ -39,3 +39,17 @@ export const getAlbums = ({ query }) => {
       });
   };
 };
+
+export const setTotalPages = ({ total }) => {
+  return {
+    action: actionTypes.SET_TOTAL_PAGES,
+    totalPages: total
+  };
+};
+
+export const goToNavigation = ({ index }) => {
+  return {
+    type: actionTypes.GOT_TO_NAV,
+    index
+  };
+};

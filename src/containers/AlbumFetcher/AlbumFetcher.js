@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import styles from './AlbumFetcher.module.css';
 import { connect } from 'react-redux';
 
+import { goToNavigation } from '../../store/actions/actions';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import Catalogue from '../../components/Catalogue/Catalogue';
+import Navigation from '../../components/Navigation/Navigation';
 
 class AlbumFetcher extends Component {
   state = {
@@ -33,6 +35,13 @@ class AlbumFetcher extends Component {
           sticky={this.state.sticky}
           loading={this.props.loading}
           albums={this.props.albums}
+          currentPage={this.props.currentPage}
+          albumsPerPage={this.props.albumsPerPage}
+        />
+        <Navigation
+          currentPage={this.props.currentPage}
+          totalPages={this.props.totalPages}
+          goTo={this.props.goTo}
         />
       </div>
     );
@@ -40,12 +49,24 @@ class AlbumFetcher extends Component {
 }
 
 const mapStateToProps = state => {
-  const { loading, albums } = state;
-  console.log(albums);
+  const { loading, albums, currentPage, albumsPerPage, totalPages } = state;
+
   return {
     loading,
-    albums: albums
+    albums: albums,
+    currentPage,
+    totalPages,
+    albumsPerPage
   };
 };
 
-export default connect(mapStateToProps)(AlbumFetcher);
+const mapDispatchToProps = dispatch => {
+  return {
+    goTo: ({ index }) => dispatch(goToNavigation({ index }))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AlbumFetcher);

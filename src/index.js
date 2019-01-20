@@ -6,9 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import reducer from './store/reducers/reducer';
+import fetchReducer from './store/reducers/FetchReducer';
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(fetchReducer, applyMiddleware(thunk));
 
 const app = (
   <Provider store={store}>
