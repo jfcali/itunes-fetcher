@@ -5,10 +5,16 @@
   background: white;
   border-bottom: 4px solid black;
   padding: 10px;
+  border-radius: 4px;
   box-sizing: border-box;
 }
 
 .Field:focus {
   border-bottom-color: var(--light-blue); 
   color: var(--light-blue); 
+}
+
+.Field:disabled {
+  border-bottom-color: #ccc;
+  color: #ccc;
 }

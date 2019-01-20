@@ -2,18 +2,22 @@
   margin-left: 5px;
   width: 180px;
   background: none;
-  border: 3px solid black;
+  border: 4px solid black;
   color: black; 
+
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 5px;
 }
 
-.Submit:hover {
+.Submit:disabled {
+  color: #ccc;
+  border-color: #ccc;
+  pointer-events: none;
+}
+.Submit:hover,.Submit:focus  {
   color: white;
-  border-color: var(--light-blue);
-  background: var(--light-blue);
-}
-
-.Submit:active {
-  color: black;
   border-color: black;
-  background: var(--light-blue);
+  background: black;
 }

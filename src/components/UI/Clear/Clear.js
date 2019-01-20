@@ -3,7 +3,12 @@ import styles from './Clear.module.css';
 
 const clear = props => {
   return (
-    <button className={styles.Clear} {...props}>
+    <button
+      tabIndex={0}
+      className={styles.Clear}
+      onClick={props.clickhandler}
+      disabled={props.disabled}
+    >
       {props.children}
     </button>
   );
