@@ -6,3 +6,13 @@
   box-sizing: border-box;
   padding: 20px;
 }
+
+.Sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  -webkit-box-shadow: 1px 1px 6px 0px rgba(180,180, 180,1);
+  -moz-box-shadow: 1px 1px 6px 0px rgba(180,180, 180,1);
+  box-shadow: 1px 1px 6px 0px rgba(180,180, 180,1);
+}
