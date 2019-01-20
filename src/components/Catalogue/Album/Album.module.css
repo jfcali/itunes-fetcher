@@ -1,0 +1,25 @@
+.Album {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-gap: 10px;
+  border: 4px solid black;
+  box-sizing: border-box;
+  padding: 20px;
+  align-items: center;
+}
+
+.AlbumName {
+  font-size: 22px;
+  font-weight: 200;
+  margin-top: 0px;
+  margin-bottom:0px;
+}
+
+.Artist {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0px;
+}
+.Cover {
+  max-width: 100%;
+}
