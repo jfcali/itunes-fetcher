@@ -17,8 +17,19 @@ const getAlbumsStart = state => {
 };
 
 const getAlbumsSuccess = (state, data) => {
+  console.log(data.results);
   return updateObject(state, {
-    loading: false
+    loading: false,
+    albums: data.results.map(a => {
+      console.log(a);
+      const { artistName, collectionName, artworkUrl100, collectionId } = a;
+      return {
+        artist: artistName,
+        album: collectionName,
+        imageUrl: artworkUrl100,
+        id: collectionId
+      };
+    })
   });
 };
 

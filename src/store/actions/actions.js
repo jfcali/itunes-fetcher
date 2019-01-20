@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import axios from '../../fetchConfig/fetchconfig';
+import instance from '../../fetchConfig/fetchconfig';
 
 const getAlbumsStart = () => {
   return {
@@ -7,9 +7,10 @@ const getAlbumsStart = () => {
   };
 };
 
-const getAlbumsSuccess = () => {
+const getAlbumsSuccess = ({ data }) => {
   return {
-    type: actionTypes.GET_ALBUMS_SUCCESS
+    type: actionTypes.GET_ALBUMS_SUCCESS,
+    data
   };
 };
 
@@ -22,10 +23,16 @@ const getAlbumsFail = () => {
 export const getAlbums = ({ query }) => {
   return dispatch => {
     dispatch(getAlbumsStart());
-    axios
-      .get('/search', {})
+    instance
+      .get('https://itunes.apple.com/search', {
+        params: {
+          term: query,
+          entity: 'album',
+          limit: 200
+        }
+      })
       .then(res => {
-        dispatch(getAlbumsSuccess(res));
+        dispatch(getAlbumsSuccess({ data: res.data }));
       })
       .catch(err => {
         dispatch(getAlbumsFail(err));
