@@ -59,4 +59,21 @@ const Catalogue = props => {
   );
 };
 
-export default Catalogue;
+catalogue.propTypes = {
+  loading: PropTypes.bool,
+  sticky: PropTypes.bool,
+  currentPage: PropTypes.number,
+  albumsPerPage: PropTypes.number,
+  albums: PropTypes.arrayOf(
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        artist: PropTypes.string,
+        album: PropTypes.string,
+        imageUrl: PropTypes.string,
+        id: PropTypes.number
+      })
+    )
+  )
+};
+
+export default catalogue;
