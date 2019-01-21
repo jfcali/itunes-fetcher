@@ -8,8 +8,19 @@ const initialState = {
   albums: [],
   totalPages: 1,
   currentPage: 1,
-  albumsPerPage: 6,
+  albumsPerPage: 20,
   albumShortlist: []
+};
+
+const albumPagination = (albumsPerPage, albums) => {
+  let groupedAlbums = [];
+
+  for (let i = 0; i < albums.length; i += albumsPerPage) {
+    const piece = albums.slice(i, i + albumsPerPage);
+    groupedAlbums.push(piece);
+  }
+
+  return groupedAlbums;
 };
 
 const getAlbumsStart = state => {
@@ -23,21 +34,26 @@ const getAlbumsSuccess = (state, data) => {
   const updatedTotalPages =
     data.results.length < state.albumsPerPage
       ? 1
-      : Math.round(data.results.length / state.albumsPerPage);
+      : Math.ceil(data.results.length / state.albumsPerPage);
 
+  const albums = data.results.map(a => {
+    const { artistName, collectionName, artworkUrl100, collectionId } = a;
+    return {
+      artist: artistName,
+      album: collectionName,
+      imageUrl: artworkUrl100,
+      id: collectionId
+    };
+  });
+
+  const groupedAlbums = albumPagination(state.albumsPerPage, albums);
+
+  console.log(groupedAlbums);
   return updateObject(state, {
     totalPages: updatedTotalPages,
     loading: false,
     currentPage: 1,
-    albums: data.results.map(a => {
-      const { artistName, collectionName, artworkUrl100, collectionId } = a;
-      return {
-        artist: artistName,
-        album: collectionName,
-        imageUrl: artworkUrl100,
-        id: collectionId
-      };
-    })
+    albums: groupedAlbums
   });
 };
 
@@ -51,7 +67,7 @@ const getAlbumsFail = (state, error) => {
 
 const setCurrentPage = (state, index) => {
   let newIndex = index;
-  if (newIndex <= 0) {
+  if (newIndex < 1) {
     newIndex = state.totalPages;
   } else if (newIndex > state.totalPages) {
     newIndex = 1;
