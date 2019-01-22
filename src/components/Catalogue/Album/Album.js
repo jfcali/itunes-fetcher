@@ -10,7 +10,11 @@ const ellipsis = ({ text = '', tail = '...', length = 100 }) => {
 
 const album = props => {
   return (
-    <div className={styles.Album}>
+    <div
+      className={
+        props.list ? [styles.Album, styles.List].join(' ') : styles.Album
+      }
+    >
       <img
         src={props.imageUrl}
         className={styles.Cover}
@@ -19,7 +23,7 @@ const album = props => {
       />
       <div>
         <h1 className={styles.AlbumName}>
-          {ellipsis({ text: props.album, length: 50 })}
+          {ellipsis({ text: props.album, length: 20 })}
         </h1>
         <p className={styles.Artist}>
           {ellipsis({ text: props.artist, length: 50 })}

@@ -1,11 +1,20 @@
 .Album {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 150px 1fr;
   grid-gap: 10px;
   border: 4px solid black;
   box-sizing: border-box;
   padding: 20px;
   align-items: center;
+}
+
+.List {
+  grid-template-columns: 50px 1fr 1fr;
+}
+
+.Album:hover {
+  box-shadow: -5px -5px rgba(0,0,0,0.9);
+  transform: rotateX(-12deg) rotateY(12deg);
 }
 
 .AlbumName {
