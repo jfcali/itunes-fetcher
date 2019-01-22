@@ -1,0 +1,17 @@
+.Button {
+  background: none;
+  border: 4px solid black;
+  color: black;
+  font-weight: 700;
+}
+
+.Button:disabled {
+  color: #ccc;
+  border-color: #ccc;
+  pointer-events: none;
+}
+.Button:hover,.Button:focus  {
+  color: white;
+  border-color: black;
+  background: black;
+}

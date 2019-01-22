@@ -1,16 +1,17 @@
 import React from 'react';
 import styles from './Submit.module.css';
 
+import Button from '../Button/Button';
 const submit = props => {
   return (
-    <button
+    <Button
       tabIndex={0}
       onClick={props.clicked}
       className={styles.Submit}
       disabled={props.disabled}
     >
       {props.children}
-    </button>
+    </Button>
   );
 };
 
