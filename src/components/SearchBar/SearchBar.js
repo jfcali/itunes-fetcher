@@ -26,7 +26,7 @@ class SearchBar extends Component {
   };
 
   handleEnter = e => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && this.state.query && this.state.query.length) {
       this.props.fetchAlbums({ query: this.state.query });
     }
   };
@@ -42,6 +42,7 @@ class SearchBar extends Component {
           onChange={this.updateText.bind(this)}
           onKeyPress={this.handleEnter}
           disabled={this.props.loading}
+          placeholder="Search for artists, albums, songs..."
         />
         <Clear
           clickhandler={this.clearText.bind(this)}
