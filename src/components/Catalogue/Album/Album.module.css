@@ -1,15 +1,11 @@
 .Album {
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 100px 1fr;
   grid-gap: 10px;
   border: 4px solid black;
   box-sizing: border-box;
   padding: 20px;
   align-items: center;
-}
-
-.List {
-  grid-template-columns: 50px 1fr 1fr;
 }
 
 .Album:hover {
@@ -31,4 +27,30 @@
 }
 .Cover {
   max-width: 100%;
+}
+
+.List {
+  grid-template-columns: 50px 1fr;
+  grid-gap: 20px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.List:last-child {
+  border-bottom: none;
+}
+
+.List:hover {
+  box-shadow: none;
+  transform: none;
+  background: #fafaff;
+}
+
+.List .Info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.List .Artist {
+  text-align: right;
 }
