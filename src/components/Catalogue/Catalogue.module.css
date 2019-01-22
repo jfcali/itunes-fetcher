@@ -5,7 +5,18 @@
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: max-content minmax(min-content, 170px);
   grid-auto-rows: 170px;
   grid-gap: 20px;
+}
+
+.ListView {
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content minmax(min-content, 120px);
+  grid-auto-rows: 120px;
+}
+
+.Toggle {
+  grid-column: 1 / -1;
 }
 
