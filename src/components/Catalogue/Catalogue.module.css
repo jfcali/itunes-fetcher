@@ -12,11 +12,17 @@
 
 .ListView {
   grid-template-columns: 1fr;
-  grid-template-rows: max-content minmax(min-content, 120px);
-  grid-auto-rows: 120px;
+  grid-template-rows: max-content minmax(min-content, 100px);
+  grid-auto-rows: 100px;
+  grid-gap: 0px;
 }
 
 .Toggle {
   grid-column: 1 / -1;
 }
 
+@media (min-width: 812px) {
+  .Sticky {
+    margin-top: 100px;
+  }
+}

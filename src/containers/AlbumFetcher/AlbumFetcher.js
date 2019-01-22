@@ -10,7 +10,8 @@ import Message from '../../components/Message/Message';
 
 class AlbumFetcher extends Component {
   state = {
-    sticky: false
+    sticky: false,
+    list: false
   };
 
   componentDidMount() {
@@ -27,6 +28,15 @@ class AlbumFetcher extends Component {
       }
     });
   }
+
+  toggleViewMode = () => {
+    this.setState(state => {
+      const currentView = state.list;
+      return {
+        list: !currentView
+      };
+    });
+  };
 
   render() {
     return (
@@ -46,6 +56,8 @@ class AlbumFetcher extends Component {
             currentPage={this.props.currentPage}
             albumsPerPage={this.props.albumsPerPage}
             error={this.props.error}
+            toggleViewMode={this.toggleViewMode.bind(this)}
+            list={this.state.list}
           />
         ) : (
           <Message
