@@ -49,7 +49,6 @@ const getAlbumsSuccess = (state, data) => {
 
   const groupedAlbums = albumPagination(state.albumsPerPage, albums);
 
-  console.log(groupedAlbums);
   return updateObject(state, {
     totalPages: updatedTotalPages,
     loading: false,
