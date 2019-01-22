@@ -9,6 +9,7 @@ const ellipsis = ({ text = '', tail = '...', length = 100 }) => {
 };
 
 const album = props => {
+  const titleLength = props.list ? 100 : 50;
   return (
     <div
       className={
@@ -21,12 +22,12 @@ const album = props => {
         alt={props.album}
         longdesc={props.album}
       />
-      <div>
+      <div className={styles.Info}>
         <h1 className={styles.AlbumName}>
-          {ellipsis({ text: props.album, length: 20 })}
+          {ellipsis({ text: props.album, length: titleLength })}
         </h1>
         <p className={styles.Artist}>
-          {ellipsis({ text: props.artist, length: 50 })}
+          {ellipsis({ text: props.artist, length: titleLength })}
         </p>
       </div>
     </div>
