@@ -9,7 +9,8 @@ const initialState = {
   totalPages: 1,
   currentPage: 1,
   albumsPerPage: 20,
-  albumShortlist: []
+  albumShortlist: [],
+  initialLoad: false
 };
 
 const albumPagination = (albumsPerPage, albums) => {
@@ -53,7 +54,8 @@ const getAlbumsSuccess = (state, data) => {
     totalPages: updatedTotalPages,
     loading: false,
     currentPage: 1,
-    albums: groupedAlbums
+    albums: groupedAlbums,
+    initialLoad: true
   });
 };
 

@@ -38,7 +38,7 @@ class AlbumFetcher extends Component {
         }
       >
         <SearchBar sticky={this.state.sticky} loading={this.props.loading} />
-        {this.props.albums && this.props.albums.length ? (
+        {this.props.initialLoad && this.props.albums.length ? (
           <Catalogue
             sticky={this.state.sticky}
             loading={this.props.loading}
@@ -48,7 +48,11 @@ class AlbumFetcher extends Component {
             error={this.props.error}
           />
         ) : (
-          <Message loading={this.props.loading} error={this.props.error} />
+          <Message
+            emptySearch={this.props.initialLoad}
+            loading={this.props.loading}
+            error={this.props.error}
+          />
         )}
         {this.props.albums && this.props.albums.length ? (
           <Navigation
@@ -69,7 +73,8 @@ const mapStateToProps = state => {
     currentPage,
     albumsPerPage,
     totalPages,
-    error
+    error,
+    initialLoad
   } = state;
 
   return {
@@ -78,7 +83,8 @@ const mapStateToProps = state => {
     currentPage,
     totalPages,
     albumsPerPage,
-    error
+    error,
+    initialLoad
   };
 };
 
