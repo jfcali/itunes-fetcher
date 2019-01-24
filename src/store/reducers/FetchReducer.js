@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../utils';
 
-const initialState = {
+export const initialState = {
   loading: false,
   error: false,
   errorMessage: '',
@@ -9,7 +9,6 @@ const initialState = {
   totalPages: 1,
   currentPage: 1,
   albumsPerPage: 20,
-  albumShortlist: [],
   initialLoad: false
 };
 
@@ -26,8 +25,7 @@ const albumPagination = (albumsPerPage, albums) => {
 
 const getAlbumsStart = state => {
   return updateObject(state, {
-    loading: true,
-    albums: []
+    loading: true
   });
 };
 

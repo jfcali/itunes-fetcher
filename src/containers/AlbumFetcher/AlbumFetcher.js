@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import styles from './AlbumFetcher.module.css';
 import { connect } from 'react-redux';
 
@@ -8,14 +8,13 @@ import Catalogue from '../../components/Catalogue/Catalogue';
 import Navigation from '../../components/Navigation/Navigation';
 import Message from '../../components/Message/Message';
 
-class AlbumFetcher extends Component {
+export class AlbumFetcher extends Component {
   state = {
     sticky: false,
     list: false
   };
 
   componentDidMount() {
-    // TODO: AVOID CALLING SET STATE EVERYTIME
     window.addEventListener('scroll', e => {
       if (window.scrollY > 100 && this.state.sticky === false) {
         this.setState({
@@ -52,17 +51,26 @@ class AlbumFetcher extends Component {
           loading={this.props.loading}
           fetchAlbums={this.props.fetchAlbums}
         />
-        {this.props.initialLoad && this.props.albums.length ? (
-          <Catalogue
-            sticky={this.state.sticky}
-            loading={this.props.loading}
-            albums={this.props.albums}
-            currentPage={this.props.currentPage}
-            albumsPerPage={this.props.albumsPerPage}
-            error={this.props.error}
-            toggleViewMode={this.toggleViewMode.bind(this)}
-            list={this.state.list}
-          />
+        {this.props.initialLoad &&
+        this.props.albums.length &&
+        !this.props.loading ? (
+          <Fragment>
+            <Catalogue
+              sticky={this.state.sticky}
+              loading={this.props.loading}
+              albums={this.props.albums}
+              currentPage={this.props.currentPage}
+              albumsPerPage={this.props.albumsPerPage}
+              error={this.props.error}
+              toggleViewMode={this.toggleViewMode.bind(this)}
+              list={this.state.list}
+            />
+            <Navigation
+              currentPage={this.props.currentPage}
+              totalPages={this.props.totalPages}
+              goTo={this.props.goTo}
+            />
+          </Fragment>
         ) : (
           <Message
             emptySearch={this.props.initialLoad}
@@ -70,13 +78,6 @@ class AlbumFetcher extends Component {
             error={this.props.error}
           />
         )}
-        {this.props.albums && this.props.albums.length ? (
-          <Navigation
-            currentPage={this.props.currentPage}
-            totalPages={this.props.totalPages}
-            goTo={this.props.goTo}
-          />
-        ) : null}
       </div>
     );
   }
