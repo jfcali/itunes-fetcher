@@ -40,6 +40,7 @@ class SearchBar extends Component {
           onKeyPress={this.handleEnter}
           disabled={this.props.loading}
           placeholder="Search for artists, albums, songs..."
+          autoFocus
         />
         <Clear
           clickhandler={this.clearText.bind(this)}
