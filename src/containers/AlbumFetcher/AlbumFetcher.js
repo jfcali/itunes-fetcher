@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './AlbumFetcher.module.css';
 import { connect } from 'react-redux';
 
-import { goToNavigation } from '../../store/actions/actions';
+import { goToNavigation, getAlbums } from '../../store/actions/actions';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import Catalogue from '../../components/Catalogue/Catalogue';
 import Navigation from '../../components/Navigation/Navigation';
@@ -47,7 +47,11 @@ class AlbumFetcher extends Component {
             : styles.AlbumFetcher
         }
       >
-        <SearchBar sticky={this.state.sticky} loading={this.props.loading} />
+        <SearchBar
+          sticky={this.state.sticky}
+          loading={this.props.loading}
+          fetchAlbums={this.props.fetchAlbums}
+        />
         {this.props.initialLoad && this.props.albums.length ? (
           <Catalogue
             sticky={this.state.sticky}
@@ -102,6 +106,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    fetchAlbums: ({ query }) => dispatch(getAlbums({ query })),
     goTo: ({ index }) => dispatch(goToNavigation({ index }))
   };
 };

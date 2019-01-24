@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import styles from './SearchBar.module.css';
 
-import { getAlbums } from '../../store/actions/actions';
-import { connect } from 'react-redux';
-
 import Field from '../UI/Field/Field';
 import Clear from '../UI/Clear/Clear';
 import Submit from '../UI/Submit/Submit';
@@ -66,15 +63,4 @@ class SearchBar extends Component {
     );
   }
 }
-
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchAlbums: ({ query }) => {
-      return dispatch(getAlbums({ query }));
-    }
-  };
-};
-export default connect(
-  null,
-  mapDispatchToProps
-)(SearchBar);
+export default SearchBar;
