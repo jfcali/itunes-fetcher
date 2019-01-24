@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Catalogue.module.css';
 
 import Album from './Album/Album';
+import ToggleView from '../ToggleView/ToggleView';
 
 const catalogue = props => {
   const classes = [styles.Catalogue];
@@ -14,9 +15,7 @@ const catalogue = props => {
   }
   return (
     <div className={classes.join(' ')}>
-      <div className={styles.Toggle} onClick={props.toggleViewMode}>
-        Toggle
-      </div>
+      <ToggleView clicked={props.toggleViewMode}>Toggle</ToggleView>
       {props.albums && props.albums.length
         ? props.albums[props.currentPage - 1].map(a => {
             const { artist, album, imageUrl, id } = a;

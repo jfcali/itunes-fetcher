@@ -17,10 +17,6 @@
   grid-gap: 0px;
 }
 
-.Toggle {
-  grid-column: 1 / -1;
-}
-
 @media (min-width: 812px) {
   .Sticky {
     margin-top: 100px;
