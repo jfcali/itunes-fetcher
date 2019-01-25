@@ -15,10 +15,6 @@ describe('<Catalogue />', () => {
     wrapper = shallow(<Catalogue />);
   });
 
-  it('should render <ToggleView />', () => {
-    expect(wrapper.find(ToggleView)).toHaveLength(1);
-  });
-
   it('should render no <Album>s if no albums are passed as props', () => {
     expect(wrapper.find(Album)).toHaveLength(0);
   });
