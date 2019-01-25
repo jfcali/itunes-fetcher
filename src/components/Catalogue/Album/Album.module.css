@@ -54,3 +54,12 @@
 .List .Artist {
   text-align: right;
 }
+
+@media (max-width: 414px) {
+  .AlbumName {
+    font-size: 18px;
+  }
+  .Artist {
+    font-size: 13px;
+  }
+}

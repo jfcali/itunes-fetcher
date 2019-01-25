@@ -68,6 +68,7 @@ export class AlbumFetcher extends Component {
               currentPage={this.props.currentPage}
               totalPages={this.props.totalPages}
               goTo={this.props.goTo}
+              list={this.state.list}
               toggleViewMode={this.toggleViewMode.bind(this)}
             />
           </Fragment>

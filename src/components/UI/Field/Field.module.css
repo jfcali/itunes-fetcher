@@ -18,3 +18,9 @@
   border-bottom-color: #ccc;
   color: #ccc;
 }
+
+@media(max-width: 812px) {
+  .Field {
+    font-size: 16px;
+  }
+}

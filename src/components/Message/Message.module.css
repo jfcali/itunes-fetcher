@@ -54,7 +54,15 @@
 @media (max-width: 640px) {
   .Loading {
     text-align: center;
-    font-size: 70px;
+    font-size: 65px;
+    align-self: center;
+  }
+}
+
+@media (max-width: 414px) {
+  .Text {
+    text-align: center;
+    font-size: 40px;
     align-self: center;
   }
 }
