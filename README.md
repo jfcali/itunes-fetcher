@@ -4,11 +4,15 @@ Simple React/Redux app that retrieves info from the [iTunes API](https://affilia
 
 Additional functions include a navigation bar, where you can change pagination and toggle the Catalogue display from a grid to a list (and vice-versa).
 
-This project was bootstrapped using [Create React App](https://github.com/facebook/create-react-app). Its scripts are the following (taken from the Create React App docs):
+This project was bootstrapped using [Create React App](https://github.com/facebook/create-react-app). Its scripts are the following (mostly taken from Create React App docs):
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+## `npm install`
+
+Installs dependencies described in `package.json`.
 
 ### `npm start`
 
