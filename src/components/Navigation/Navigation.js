@@ -31,7 +31,9 @@ const navigation = props => {
           </Button>
         ) : null}
       </div>
-      <ToggleView clicked={props.toggleViewMode}>TOGGLE</ToggleView>
+      <ToggleView clicked={props.toggleViewMode}>
+        {props.list ? 'GRID' : 'LIST'}
+      </ToggleView>
     </div>
   );
 };

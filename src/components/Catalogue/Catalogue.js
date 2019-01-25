@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styles from './Catalogue.module.css';
 
 import Album from './Album/Album';
-import ToggleView from '../ToggleView/ToggleView';
 
 const catalogue = props => {
   const classes = [styles.Catalogue];
