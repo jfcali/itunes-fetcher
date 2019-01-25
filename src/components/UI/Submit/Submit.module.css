@@ -1,7 +1,12 @@
 .Submit {
   margin-left: 5px;
-  width: 180px;
 
   font-size: 22px;
   letter-spacing: 5px;
+}
+
+@media(max-width: 812px) {
+  .Submit {
+    display: none;
+  }
 }

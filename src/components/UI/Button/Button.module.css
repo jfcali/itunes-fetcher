@@ -3,6 +3,7 @@
   border: 4px solid black;
   color: black;
   font-weight: 700;
+  padding: 10px 23px;
 }
 
 .Button:disabled {
@@ -14,4 +15,12 @@
   color: white;
   border-color: black;
   background: black;
+}
+
+
+
+@media (max-width: 812px) {
+  .Button {
+    padding: 5px 12px;
+  }
 }
