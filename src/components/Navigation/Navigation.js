@@ -11,19 +11,23 @@ const navigation = props => {
   };
   return (
     <div className={styles.Navigation}>
-      <Button
-        style={additionalStyles}
-        onClick={() => props.goTo({ index: props.currentPage - 1 })}
-      >
-        PREV
-      </Button>
+      {props.totalPages > 1 ? (
+        <Button
+          style={additionalStyles}
+          onClick={() => props.goTo({ index: props.currentPage - 1 })}
+        >
+          PREV
+        </Button>
+      ) : null}
       {`${props.currentPage} / ${props.totalPages}`}
-      <Button
-        style={additionalStyles}
-        onClick={() => props.goTo({ index: props.currentPage + 1 })}
-      >
-        NEXT
-      </Button>
+      {props.totalPages > 1 ? (
+        <Button
+          style={additionalStyles}
+          onClick={() => props.goTo({ index: props.currentPage + 1 })}
+        >
+          NEXT
+        </Button>
+      ) : null}
     </div>
   );
 };
