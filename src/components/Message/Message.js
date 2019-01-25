@@ -12,7 +12,6 @@ const message = props => {
       <p className={[styles.Error, styles.Text].join(' ')}>Something</p>
       <p className={[styles.Error, styles.Text].join(' ')}>went</p>
       <p className={[styles.Error, styles.Text].join(' ')}>wrong</p>
-      <p className={styles.ErrorMini}>TRY AGAIN LATER</p>
     </div>
   ) : props.emptySearch ? (
     <div className={styles.MessageArea}>

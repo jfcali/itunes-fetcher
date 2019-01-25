@@ -19,10 +19,10 @@ const album = props => {
         longdesc={props.album}
       />
       <div className={styles.Info}>
-        <h1 className={styles.AlbumName}>
+        <h1 className={styles.AlbumName} title={props.album}>
           {ellipsis({ text: props.album, length: titleLength })}
         </h1>
-        <p className={styles.Artist}>
+        <p className={styles.Artist} title={props.artist}>
           {ellipsis({ text: props.artist, length: titleLength })}
         </p>
       </div>

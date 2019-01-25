@@ -10,7 +10,7 @@
 
 .Album:hover {
   box-shadow: -5px -5px rgba(0,0,0,0.9);
-  transform: rotateX(-12deg) rotateY(12deg);
+  transform: rotateX(-10deg) rotateY(10deg);
 }
 
 .AlbumName {

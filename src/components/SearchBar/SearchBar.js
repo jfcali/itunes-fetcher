@@ -24,6 +24,7 @@ class SearchBar extends Component {
 
   handleEnter = e => {
     if (e.key === 'Enter' && this.state.query && this.state.query.length) {
+      document.title = `iTunes search - ${this.state.query}`;
       this.props.fetchAlbums({ query: this.state.query });
     }
   };
