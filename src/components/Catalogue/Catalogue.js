@@ -15,7 +15,6 @@ const catalogue = props => {
   }
   return (
     <div className={classes.join(' ')}>
-      <ToggleView clicked={props.toggleViewMode}>Toggle</ToggleView>
       {props.albums && props.albums.length
         ? props.albums[props.currentPage - 1].map(a => {
             const { artist, album, imageUrl, id } = a;

@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './ToggleView.module.css';
+import Button from '../UI/Button/Button';
 
 const ToggleView = props => {
   return (
-    <div className={styles.ToggleView} onClick={props.clicked}>
+    <Button className={styles.ToggleView} onClick={props.clicked}>
       {props.children}
-    </div>
+    </Button>
   );
 };
 
