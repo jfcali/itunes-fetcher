@@ -2,11 +2,7 @@ import React from 'react';
 import styles from './Album.module.css';
 import PropTypes from 'prop-types';
 
-const ellipsis = ({ text = '', tail = '...', length = 100 }) => {
-  return text.length <= length
-    ? text
-    : [...text].splice(0, length).join('') + tail;
-};
+import { ellipsis } from '../../../utils/index';
 
 const album = props => {
   const titleLength = props.list ? 100 : 50;
